@@ -4,7 +4,7 @@
 FROM node:14
 
 # Set the working directory
-WORKDIR /usr/src/app
+WORKDIR F:\anshul_docker\accuknox_project\backend
 
 # Copy the current directory contents into the container
 COPY . .
