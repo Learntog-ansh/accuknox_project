@@ -44,4 +44,16 @@ Your setup is up and the message is visible
 **Deliverables:**
 1. Github Repo - 
 2. Automation Testing Foder - > accuknox_project/Automated_testing
-3. Readme File -> accuknox_project/README.md
+3. Readme File -> accuknox_project/README.md'
+
+
+
+**SH Scripts**
+1. System Health Monitor -> A script to check CPU usage, memory usage, disk usage and no. of running processes and log in a file after every two minutes
+ To set the cron job for 2 minutes, run
+
+*/2 * * * * /path/to/system_health_monitor.sh
+
+
+2. App Health Monitor - A sh Script to curl on a particular web application and return a message if th server is up or down. For any error between 400 and 600, we will return Service is down.
+ 
