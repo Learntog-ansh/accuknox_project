@@ -1,25 +1,47 @@
 # qa-test
 
 **Kubernetes Deployment:**
+1. Run minikube start
+2. Verify it is running by kubectl get nodes
+3. Go to the Backend Folder and in DockerFile, type the correct working Directory name
+4. Go to the deployment Dir. and in backend-deployment.yaml, edit the image name and the port (eg. 3000)
+5. Run the following commmands in the Backend Folder
+   docker build -t ansh28mittal/backend:latest .
+   docker run -p 3000:3000 ansh28mittal/backend:latest
+   docker push ansh28mittal/backend:latest
 
-Deploy the services to a local Kubernetes cluster (e.g., Minikube or Kind).
+6. Now go again to Deployment Folder and run
+
+   kubectl apply -f .\backend-deployment.yaml
+   kubectl get deployments (To check the status)
+
+7. Run the following commmands in the Frontend Folder
+   docker build -t ansh28mittal/frontend:latest .
+   docker run -p 8080:8080 ansh28mittal/frontend:latest
+   docker push ansh28mittal/frontend:latest
+
+8. Now go again to Deployment Folder and run
+
+   kubectl apply -f .\frontend-deployment.yaml
+   kubectl get deployments (To check the status)
+
+Note: Make sure your docker is logged in (use command "docker login" to check )
+9. Run minikube service frontend-service
+
+Your setup is up and the message is visible 
+
 
 **Verification:**
-
-- Ensure the frontend service can successfully communicate with the backend service.
-- Verify that accessing the frontend URL displays the greeting message fetched from the backend.
+1. Check for the service is up -> correct message from backend visible
+2. Check for service is down, error in console and only hello world is visible
 
 **Automated Testing:**
+1. Now go to the Automated Testing Directory
+2. Change the URL in FrontendBackendTest.java
+3. Run the Test as TestNG Test
 
-- Write a simple test script (using a tool of your choice) to verify the integration between the frontend and backend services.
-- The test should check that the frontend correctly displays the message returned by the backend.
-
-**Documentation:**
-
-- Provide a README file with instructions on how to set up and run the automated tests script.
 
 **Deliverables:**
-- Test script for automated testing.
-- README file with setup and execution instructions.
-
-**Github repo should be Public**
+1. Github Repo - 
+2. Automation Testing Foder - > accuknox_project/Automated_testing
+3. Readme File -> accuknox_project/README.md
